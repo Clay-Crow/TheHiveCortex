@@ -1,3 +1,0 @@
-# Ignore folders used as docker bind by Cassandra container
-cassandra/data/*
-cassandra/logs/*
