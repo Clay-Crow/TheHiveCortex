@@ -1,21 +1,2 @@
-
-# Ignorer les certificats (s'ils sont générés localement)
-/certificates/*
-
-# Fichiers de configuration sensibles
-/thehive/config/secret.conf
-/cortex/config/secret.conf
-
-# Fichiers d'environnement et clés
-.env                       # Ignore .env à la racine
-**/.env                    # Ignore tous les .env dans les sous-dossiers
-**/server.key
-**/server.crt
-**/ca.pem
-
-# Fichiers système/IDE
-**/.DS_Store
-**/Thumbs.db
-
 # Garder les dossiers vides avec .gitkeep
 !**/.gitkeep
