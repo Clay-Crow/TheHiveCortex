@@ -1,12 +1,3 @@
-# Ignorer les dossiers de données/logs des services conteneurisés
-/cassandra/data/*
-/cassandra/logs/*
-/cortex/logs/*
-/cortex/neurons/*
-/elasticsearch/data/*       # Note: "clasicsearch" est probablement une faute de frappe pour "elasticsearch"
-/elasticsearch/logs/*
-/thehive/data/files/*
-/thehive/logs/*
 
 # Ignorer les certificats (s'ils sont générés localement)
 /certificates/*
