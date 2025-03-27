@@ -34,6 +34,7 @@ This *production* Docker Compose file deploys the following components:
 * Cassandra: The database used by TheHive
 * Elasticsearch: Serves as the database for the indexing engine for TheHive
 * TheHive: Main application
+* Cortex: Analyzers and Responders engine
 * Nginx: Deployed as an HTTPS reverse proxy
 
 ### Configuration and data files
@@ -44,6 +45,7 @@ Each container has as dedicated folder for configuration, data and log files.
 .
 ├── cassandra
 ├── certificates
+├── cortex
 ├── docker-compose.yml
 ├── dot.env.template
 ├── elasticsearch
@@ -102,6 +104,28 @@ thehive
 
 > [!NOTE]
 > These folders should not be manually modified, except in `config` if you know what you are doing. 
+
+#### Cortex
+
+```bash
+cortex
+├── config
+│   ├── application.conf
+│   ├── logback.xml
+│   └── secret.conf.template
+├── cortex-jobs
+├── logs
+└── neurons
+```
+
+* **./cortex/config**: configuration files. `secret.conf` is generated automatically when using our init script.
+* **./cortex/cortex-jobs**: temprary data storage for Analyzers and Responders
+* **./cortex/logs**: Cortex log files
+* **./cortex/neurons**: Folder dedicated to custom Analyzers and Responders
+
+> [!NOTE]
+> These folders should not be manually modified, except in `config` if you know what you are doing.
+
 
 #### Nginx
 
@@ -185,7 +209,11 @@ docker compose up -d
 
 Open your browser, and navigate to: 
 
-* `https://HOSTNAME_OR_IP/` to connect to TheHive
+* `https://HOSTNAME_OR_IP:9000/` to connect to TheHive
+
+Open your browser, and navigate to: 
+
+* `https://HOSTNAME_OR_IP:9001/` to connect to Cortex
 
 
 ## Additional content
