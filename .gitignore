@@ -1,7 +1,5 @@
 # Ignorer les dossiers de données/logs des services conteneurisés
 /cassandra/data/*
-!/cassandra/data/.gitkeep
-
 /cassandra/logs/*
 /cortex/logs/*
 /cortex/neurons/*
